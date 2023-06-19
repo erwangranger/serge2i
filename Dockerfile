@@ -68,5 +68,5 @@ RUN chmod 755 /usr/src/app/
 RUN mkdir -p /data/db/ && chmod 777 /data/db
 RUN mkdir -p /usr/src/app/weights/ &&  chmod 777 /usr/src/app/weights/
 
-EXPOSE 8008
+EXPOSE 8080
 CMD ./deploy.sh
