@@ -60,6 +60,10 @@ COPY ./api /usr/src/app/api
 COPY --chmod=0755 scripts/deploy.sh /usr/src/app/deploy.sh
 
 RUN pip install --no-cache-dir ./api
+RUN pip install --no-cache-dir llama-cpp-python==0.1.64
+
+RUN chmod -R 755 /etc/redis/
+RUN chmod 755 /usr/src/app/
 
 EXPOSE 8008
 CMD ./deploy.sh
