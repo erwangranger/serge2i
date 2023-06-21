@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Airoboros",
+        "models": [
+            {
+                "name": "Airoboros-7B",
+                "repo": "TheBloke/airoboros-7b-gpt4-GGML",
+                "files": [
+                    {
+                        "name": "q5_1",
+                        "filename": "airoboros-7b-gpt4.ggmlv3.q5_1.bin",
+                        "disk_space": 5060000000.0
+                    },
+                    {
+                        "name": "q6_K",
+                        "filename": "airoboros-7B.ggmlv3.q6_K.bin",
+                        "disk_space": 5530000000.0
+                    }
+                ]
+            },
+            {
+                "name": "Airoboros-13B",
+                "repo": "TheBloke/airoboros-13b-gpt4-GGML",
+                "files": [
+                    {
+                        "name": "q6_K",
+                        "filename": "airoboros-13b.ggmlv3.q6_K.bin",
+                        "disk_space": 10700000000.0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Chronos",
+        "models": [
+            {
+                "name": "Chronos-13B",
+                "repo": "TheBloke/chronos-13B-GGML",
+                "files": [
+                    {
+                        "name": "q6_K",
+                        "filename": "chronos-13b.ggmlv3.q6_K.bin",
+                        "disk_space": 10700000000.0
+                    }
+                ]
+            }
+        ]
+    }
+]
