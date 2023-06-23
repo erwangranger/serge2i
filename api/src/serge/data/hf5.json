@@ -3,38 +3,24 @@
         "name": "5models",
         "models": [
             {
-                "name": "MPT-7B-Instruct-GGML",
+                "name": "MPT-7B-Instruct-GGML-q4_0",
                 "repo": "TheBloke/MPT-7B-Instruct-GGML",
                 "files": [
                     {
                         "name": "q4_0",
                         "filename": "mpt7b-instruct.ggmlv3.q4_0.bin",
                         "disk_space": 4160000000.0
-                    },
-                    {
-                        "name": "q4_1",
-                        "filename": "mpt7b-instruct.ggmlv3.q4_1.bin",
-                        "disk_space": 4990000000.0
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "MPT-7B-Instruct-GGML-q5_0",
+                "repo": "TheBloke/MPT-7B-Instruct-GGML",
+                "files": [
                     {
                         "name": "q5_0",
                         "filename": "mpt7b-instruct.ggmlv3.q5_0.bin",
-                        "disk_space": 4990000000.0
-                    },
-                    {
-                        "name": "q5_1",
-                        "filename": "mpt7b-instruct.ggmlv3.q5_1.bin",
-                        "disk_space": 4990000000.0
-                    },
-                    {
-                        "name": "q8_0",
-                        "filename": "mpt7b-instruct.ggmlv3.q8_0.bin",
-                        "disk_space": 4990000000.0
-                    },
-                    {
-                        "name": "fp16",
-                        "filename": "mpt7b-instruct.ggmlv3.fp16.bin",
-                        "disk_space": 4990000000.0
+                        "disk_space": 4570000000.0
                     }
                 ]
             }
