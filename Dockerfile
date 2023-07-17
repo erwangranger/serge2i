@@ -52,7 +52,7 @@ RUN pip install --no-cache-dir ./api \
 
 RUN pip install --no-cache-dir llama-cpp-python==0.1.70
 
-RUN chmod -R 755 /etc/redis/
+RUN chmod -R 755 /etc/redis/ /var/lib/redis/
 RUN chmod 755 /usr/src/app/
 
 RUN mkdir -p /data/db/ && chmod 777 /data/db
