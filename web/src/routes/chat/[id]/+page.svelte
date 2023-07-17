@@ -192,7 +192,6 @@
   };
 </script>
 
-/** eslint-disable svelte/no-at-html-tags */
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
   class="relative mx-auto h-full max-h-screen w-full overflow-hidden"
