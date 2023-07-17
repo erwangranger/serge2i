@@ -3,8 +3,7 @@ services:
     restart: on-failure
     build: 
       context: .
-      dockerfile: Dockerfile
-      target: dev
+      dockerfile: Dockerfile.dev
     volumes:
       - ./web:/usr/src/app/web/
       - ./api:/usr/src/app/api/
@@ -13,6 +12,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     ports:
       - "8008:8008"
+      - "9124:9124"
 
 volumes:
   datadb:
