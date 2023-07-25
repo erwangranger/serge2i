@@ -23,44 +23,22 @@ RUN apt-get update \
     && echo "dir /data/db/" >> /etc/redis/redis.conf
 
 # ---------------------------------------
-# Build frontend
-FROM node_base as frontend_builder
-
-WORKDIR /usr/src/app
-COPY ./web/package.json ./web/package-lock.json ./
-RUN npm ci
-
-COPY ./web /usr/src/app/web/
-WORKDIR /usr/src/app/web/
-RUN npm run build
-
-# ---------------------------------------
-# Runtime environment
-FROM base as release
+# Dev environment
+FROM base as dev
 
 # Set ENV
-ENV NODE_ENV='production'
 WORKDIR /usr/src/app
+ENV NODE_ENV='development'
 
-# Copy artifacts
-COPY --from=frontend_builder /usr/src/app/web/build /usr/src/app/api/static/
-COPY ./api /usr/src/app/api
-COPY scripts/deploy.sh /usr/src/app/deploy.sh
+# Install node.js and npm packages
+COPY --from=node_base /usr/local /usr/local
+COPY scripts/dev.sh /usr/src/app/dev.sh
+COPY ./web/package.json ./web/package-lock.json ./
 
-RUN pip install --no-cache-dir ./api \
-    && chmod 755 /usr/src/app/deploy.sh
+RUN npm ci \
+    && chmod 755 /usr/src/app/dev.sh
 
-RUN pip install --no-cache-dir llama-cpp-python==0.1.70
-
-RUN chmod -R 755 /etc/redis/ /var/lib/redis/
-RUN chmod 777 /var/log/redis/
-RUN chmod 755 /usr/src/app/
-
-RUN mkdir -p /data/db/ && chmod 777 /data/db
-RUN mkdir -p /usr/src/app/weights/ &&  chmod 777 /usr/src/app/weights/
-
-
-
-EXPOSE 8080
-
-CMD ["/bin/bash", "-c", "/usr/src/app/deploy.sh"]
+EXPOSE 8008
+EXPOSE 9124
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+CMD ["/bin/bash", "-c", "/usr/src/app/dev.sh"]
